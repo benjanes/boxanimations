@@ -18,7 +18,7 @@ $('document').ready(function() {
 	var e = 4;
 	var f = 5;
 	var left = 6;
-	var animateInterval = 600; // speed of the animation steps
+	var animateInterval = 500; // speed of the animation steps
 	var itemInterval = 1000; // delay interval on the loop
 	
 	// defines steps in counterclockwise motion	
