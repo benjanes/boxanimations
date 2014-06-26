@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>
-	Boxes Animated
-</title>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-
-<link rel="stylesheet" href="boxes.css"></link>
-
-<script>
 $('document').ready(function() {
 	
 	var $box = $('.box');
 	
+	// initial placements of visible boxes, alternatively goes in CSS
 	$box.eq(4).css({top: '70px',left: '30px',width: '10px',height: '10px'});
 	$box.eq(3).css({top: '45px',left: '55px',width: '60px',height: '60px'});
 	$box.eq(2).css({top: '25px',left: '175px',width: '100px',height: '100px'});
 	$box.eq(1).css({top: '45px',left: '335px',width: '60px',height: '60px'});
 	$box.eq(0).css({ top: '70px',left: '410px',width: '10px',height: '10px'});
-	
-	
 	
 	var numberOfItems = $('.box').length;
 	var right = numberOfItems-1;
@@ -30,10 +18,10 @@ $('document').ready(function() {
 	var e = 4;
 	var f = 5;
 	var left = 6;
-	var animateInterval = 600;
-	var itemInterval = 1000;
+	var animateInterval = 600; // speed of the animation steps
+	var itemInterval = 1000; // delay interval on the loop
 	
-	
+	// defines steps in counterclockwise motion	
 	var counterclockwise = function() {
 		$box.eq(a).stop().animate({
 			left: '425px',
@@ -77,7 +65,6 @@ $('document').ready(function() {
 			width: '0px',
 			height: '0px'
 		}, animateInterval);
-		
         if(a == numberOfItems -1){
             a = 0;	
         }else{
@@ -118,8 +105,9 @@ $('document').ready(function() {
         }else{
             right++;					
         }
-	};
+	}; // END of counterclockwise() definition
 	
+	// defines steps in clockwise motion
 	var clockwise = function() {
 		$box.eq(right).stop().animate({
 			top: '75px',
@@ -133,7 +121,6 @@ $('document').ready(function() {
 			width: '10px',
 			height: '10px'
 		}, animateInterval);
-		
 		$box.eq(a).stop().animate({
 			top: '45px',
 			left: '335px',
@@ -170,9 +157,6 @@ $('document').ready(function() {
 			width: '0px',
 			height: '0px'
 		}, animateInterval);
-		
-		
-		
         if(a == 0){
             a = numberOfItems -1;	
         }else{
@@ -213,42 +197,20 @@ $('document').ready(function() {
         }else{
             left--;					
         }
-	};
+	}; // END of clockwise() definition
 	
+	// on hover on left side of container, start loop moving counterclockwise
 	$('#left').hover(function() {
 		loop_on_left = setInterval(counterclockwise, itemInterval);
 	}, function() {
 		clearInterval(loop_on_left);
 	});
-				
+	
+	// on hover on right side of container, start loop moving clockwise			
 	$('#right').hover(function() {
 		loop_on_right = setInterval(clockwise, itemInterval);
 	}, function() {
 		clearInterval(loop_on_right);
 	});			
  
-	    
-	
 }); //end ready
-</script>
-</head>
-
-<body>
-<div id="box-container">
-	<div id="left"></div>
-	<div id="right"></div>
-	<div class="box" id="box1"></div>
-	<div class="box" id="box2"></div>
-	<div class="box" id="box3"></div>
-	<div class="box" id="box4"></div>
-	<div class="box" id="box5"></div>
-	<div class="box" id="box6"></div>
-	<div class="box" id="box7"></div>
-	<div class="box" id="box8"></div>
-	<div class="box" id="box9"></div>
-	<div class="box" id="box10"></div>
-    <div class="box" id="box11"></div>
-	<div class="box" id="box12"></div>
-</div>
-</body>
-</html>
