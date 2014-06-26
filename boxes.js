@@ -201,6 +201,7 @@ $('document').ready(function() {
 	
 	// on hover on left side of container, start loop moving counterclockwise
 	$('#left').hover(function() {
+		counterclockwise(); // bypass itemInterval delay on initial mouseover
 		loop_on_left = setInterval(counterclockwise, itemInterval);
 	}, function() {
 		clearInterval(loop_on_left);
@@ -208,9 +209,10 @@ $('document').ready(function() {
 	
 	// on hover on right side of container, start loop moving clockwise			
 	$('#right').hover(function() {
+		clockwise(); // bypass itemInterval delay on initial mouseover
 		loop_on_right = setInterval(clockwise, itemInterval);
 	}, function() {
 		clearInterval(loop_on_right);
 	});			
  
-}); //end ready
+}); // end ready
