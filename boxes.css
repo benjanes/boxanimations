@@ -1,0 +1,76 @@
+#box-container {
+	width: 450px;
+	height: 150px;
+	background: black;
+	overflow: hidden;
+	position: relative;
+}
+#left {
+	width: 100px;
+	height: 150px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#right {
+	width: 100px;
+	height: 150px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#animation-wrapper {
+	width: 450px;
+	height: 150px;
+	position: absolute;
+	overflow: hidden;
+	background: transparent;
+}
+
+.box {
+	display: inline-block;
+	position: absolute;
+	top: 75px;
+	left: 25px;
+	width: 0px;
+	height: 0px;
+}
+
+#box1 {
+	background: red;
+}
+#box2 {
+	background: orange;
+}
+#box3 {
+	background: yellow;
+}
+#box4 {
+	background: green;
+}
+#box5 {
+	background: blue;
+}
+#box6 {
+	background: purple;
+}
+#box7 {
+	background: red;
+}
+#box8 {
+	background: orange;
+}
+#box9 {
+	background: yellow;
+}
+#box10 {
+	background: green;
+}
+#box11 {
+	background: blue;
+}
+#box12 {
+	background: purple;
+}
