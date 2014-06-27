@@ -200,19 +200,25 @@ $('document').ready(function() {
 	}; // END of clockwise() definition
 	
 	// on hover on left side of container, start loop moving counterclockwise
-	$('#left').hover(function() {
+	$('#left').bind('touchstart mouseover', function(e) {
 		counterclockwise(); // bypass itemInterval delay on initial mouseover
 		loop_on_left = setInterval(counterclockwise, itemInterval);
-	}, function() {
+		e.preventDefault();
+	});
+	$('#left').bind('touchend mouseout', function(e) {
 		clearInterval(loop_on_left);
+		e.preventDefault();
 	});
 	
 	// on hover on right side of container, start loop moving clockwise			
-	$('#right').hover(function() {
+	$('#right').bind('touchstart mouseover', function(e) {
 		clockwise(); // bypass itemInterval delay on initial mouseover
 		loop_on_right = setInterval(clockwise, itemInterval);
-	}, function() {
+		e.preventDefault();
+	});
+	$('#right').bind('touchend mouseout', function(e) {
 		clearInterval(loop_on_right);
+		e.preventDefault();
 	});			
  
 }); // end ready
